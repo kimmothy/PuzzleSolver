@@ -23,8 +23,7 @@ class Queue:
         value = item[1]
         try:
             for q in self:
-                data = q.data
-                if data[key] == value:
+                if q[key] == value:
                     return True
         except StopIteration:
             return False
@@ -47,6 +46,7 @@ class Queue:
             if tmp.link == None:
                 self.top = None
             return tmp.data
+
 
 class QueueIterator:
     pointer = None
