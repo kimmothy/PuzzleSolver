@@ -30,7 +30,7 @@ class Queue:
 
     def enqueue(self, data):
         newNode = Node(data)
-        if self.top == None:
+        if self.top is None:
             self.top = newNode
             self.bottom = newNode
         else:
@@ -38,12 +38,12 @@ class Queue:
             self.top = newNode
 
     def dequeue(self):
-        if self.bottom == None:
+        if self.bottom is None:
             return None
         else:
             tmp = self.bottom
             self.bottom = tmp.link
-            if tmp.link == None:
+            if tmp.link is None:
                 self.top = None
             return tmp.data
 
@@ -54,7 +54,7 @@ class QueueIterator:
         self.pointer = queue.bottom
 
     def __next__(self):
-        if self.pointer == None:
+        if self.pointer is None:
             raise StopIteration
         data = self.pointer.data
         self.pointer = self.pointer.link

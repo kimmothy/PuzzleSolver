@@ -2,7 +2,8 @@ class stackNode:
     link = None
     data = {}
 
-    def __init__(self, data):
+    def __init__(self,data, link=None):
+        self.link = link
         self.data = data
 
 
@@ -33,9 +34,6 @@ class Stack:
             self.top = self.top.link
             return tmp
 
-    def getData(self):
-        return self.top.data
-
     def append(self, data):
         newNode = stackNode(data)
         newNode.link = self.top
@@ -49,7 +47,7 @@ class StackIterator:
         self.indexPoint = stack.top
 
     def __next__(self):
-        if self.indexPoint == None:
+        if self.indexPoint is None:
             raise StopIteration
         else:
             tmp = self.indexPoint.data

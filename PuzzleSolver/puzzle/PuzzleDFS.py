@@ -26,8 +26,8 @@ class PuzzleDFS:
     # getWays는 현재 위치에서 가능한 모든 종류의 이동을 구하기 위한 함수이다. 새로운 위치에 왔을 때
     # 간선을 구하기 위해 호출된다.
 
-    def getWays(self):
-        pass
+    # def getWays(self):
+    #     pass
 
     def solve(self):
         self.visited.append({"position":self.position})
@@ -39,24 +39,11 @@ class PuzzleDFS:
             moveNum = data["moveNum"] + 1
             moveRecord = data["moveRecord"]
             nextWays = self.getWays()
-            print(nextWays,"rlf")
             for w in nextWays:
                 newMove = w[0]
                 newPosition = w[1]
-                updatedRecord  = moveRecord + " " + newMove
+                updatedRecord = moveRecord + " " + newMove
                 if self.goal(newPosition):
                     return updatedRecord, moveNum
                 self.visited.append({"position":newPosition})
                 self.puzzleS.append({"position":newPosition, "moveNum":moveNum, "moveRecord":updatedRecord})
-
-
-
-if __name__ == "__main__":
-    field = [[0,0,1,1,0,0],
-             [0,0,1,1,0,0],
-             [1,1,1,1,1,1],
-             [1,1,1,1,1,1],
-             [0,1,1,1,1,0],
-             [0,1,1,1,1,0],
-             [0,0,1,1,0,0],
-             [0,0,1,1,0,0]]

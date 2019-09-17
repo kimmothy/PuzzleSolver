@@ -19,26 +19,23 @@ class PuzzleBFS:
     #     pass
 
     def solve(self):
-        print("일단 작동")
-        moveNum = 0
-        moveRecord = ""
-        self.puzzleQ.enqueue({"position":self.position, "moveNum":moveNum, "moveRecord":moveRecord})
+        self.puzzleQ.enqueue({"position":self.position, "moveNum":0, "moveRecord":""})
         self.visited.enqueue({'position':self.position})
         while True:
             data = self.puzzleQ.dequeue()
             print(data)
+            self.position = data["position"]
             moveNum = data["moveNum"] + 1
             moveRecord = data["moveRecord"]
-            self.position = data["position"]
-            ways = self.getWays()
-            for w in ways:
+            nextWays = self.getWays()
+            for w in nextWays:
                 newMove = w[0]
                 newPosition = w[1]
-                updatedRecord = moveRecord + newMove
-                self.puzzleQ.enqueue({"position":newPosition, "moveNum":moveNum,"moveRecord":updatedRecord})
-                self.visited.enqueue({"position":newPosition})
+                updatedRecord = moveRecord + " " + newMove
                 if self.goal(newPosition):
                     return updatedRecord, moveNum
+                self.puzzleQ.enqueue({"position":newPosition, "moveNum":moveNum,"moveRecord":updatedRecord})
+                self.visited.enqueue({"position":newPosition})
 
 
 if __name__ == "__main__":
