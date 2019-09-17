@@ -1,9 +1,10 @@
 class stackNode:
     link = None
-    data = None
+    data = {}
 
     def __init__(self, data):
         self.data = data
+
 
 class Stack:
     top = None
