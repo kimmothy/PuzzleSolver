@@ -1,10 +1,11 @@
-from PuzzleSolver.puzzle.PuzzleBFS import PuzzleBFS
-from PuzzleSolver.puzzle.PuzzleDFS import PuzzleDFS
+from puzzle.PuzzleBFS import PuzzleBFS
+from puzzle.PuzzleDFS import PuzzleDFS
 
 
 class KnightPuzzle:
     def isValidate(self, newPosition, movedBlockIndex):
         pass
+
     def getWays(self):
         rowNum = len(self.position[1])
         colNum = len(self.position[1][0])
@@ -37,14 +38,17 @@ class KnightPuzzle:
             ways.append((move, [[row,col],newField]))
         return ways
 
+
 class KnightPuzzleBFS(KnightPuzzle, PuzzleBFS):
     pass
+
 
 class KnightPuzzleDFS(KnightPuzzle, PuzzleDFS):
     pass
 
+
 if __name__ == "__main__":
-    #앞의 두칸짜리 리스트는 나이트의 위치, 뒤의 2차원 배열은 판의 상태
+    # 앞의 두칸짜리 리스트는 나이트의 위치, 뒤의 2차원 배열은 판의 상태
     firstPosition = [ [0,0],
         [[1, 0, 0],
          [0, 0, 0],
@@ -55,5 +59,5 @@ if __name__ == "__main__":
     myPuzzle = KnightPuzzleBFS(firstPosition, goal)
     # myPuzzle = KnightPuzzleDFS(firstPosition, goal)
     moving, moveNum = myPuzzle.solve()
-    print(moveNum)
-    print(moving)
+    print("이동횟수",moveNum)
+    print("이동경로", moving)

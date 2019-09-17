@@ -1,12 +1,12 @@
-from PuzzleSolver.puzzle.Queue import Queue
+from puzzle.Queue import Queue
 
 
 class PuzzleBFS:
     state = [[]]
-    field = [[[]]]
+    field = [[]]
     visited = None
     puzzleQ = None
-    goal = None#lambda
+    goal = None  # lambda
 
     def __init__(self, firstPosition, goal, field = None):
         self.position = firstPosition
@@ -15,8 +15,8 @@ class PuzzleBFS:
         self.puzzleQ = Queue()
         self.goal = goal
 
-    # def getWays(self):
-    #     pass
+    def getWays(self):
+        pass
 
     def solve(self):
         self.puzzleQ.enqueue({"position":self.position, "moveNum":0, "moveRecord":""})
@@ -36,9 +36,3 @@ class PuzzleBFS:
                     return updatedRecord, moveNum
                 self.puzzleQ.enqueue({"position":newPosition, "moveNum":moveNum,"moveRecord":updatedRecord})
                 self.visited.enqueue({"position":newPosition})
-
-
-if __name__ == "__main__":
-    firstPosition = [[]]
-    field = [[]]
-    goal = lambda position: position == [[]]

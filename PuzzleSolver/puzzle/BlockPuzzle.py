@@ -69,5 +69,5 @@ if __name__ == "__main__":
     # myPuzzle = BlockPuzzleBFS(firstPosition, goal, field)
     myPuzzle = BlockPuzzleDFS(firstPosition, goal, field)
     moving, moveNum = myPuzzle.solve()
-    print(moveNum)
-    print(moving)
+    print("이동횟수",moveNum)
+    print("이동경로", moving)

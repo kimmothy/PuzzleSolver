@@ -1,5 +1,5 @@
-from PuzzleSolver.puzzle.PuzzleBFS import PuzzleBFS
-from PuzzleSolver.puzzle.PuzzleDFS import PuzzleDFS
+from puzzle.PuzzleBFS import PuzzleBFS
+from puzzle.PuzzleDFS import PuzzleDFS
 
 
 class PegSolitaire:
@@ -37,11 +37,14 @@ class PegSolitaire:
 
         return ways
 
+
 class PegSolitaireBFS(PegSolitaire, PuzzleBFS):
     pass
 
+
 class PegSolitaireDFS(PegSolitaire, PuzzleDFS):
     pass
+
 
 if __name__ == "__main__":
 
@@ -61,7 +64,7 @@ if __name__ == "__main__":
                                          [3, 3, 0, 0, 0, 3, 3],
                                          [3, 3, 0, 0, 0, 3, 3]
                                          ]
-    #myPuzzle = PegSolitaireBFS(firstPosition, goal)
+    # myPuzzle = PegSolitaireBFS(firstPosition, goal)
     myPuzzle = PegSolitaireDFS(firstPosition, goal)
     moving, moveNum = myPuzzle.solve()
     print("이동횟수",moveNum)
