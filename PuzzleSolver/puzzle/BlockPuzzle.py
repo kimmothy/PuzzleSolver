@@ -42,11 +42,15 @@ class BlockPuzzle:
 
         return ways
 
+
 class BlockPuzzleBFS(BlockPuzzle, PuzzleBFS):
     pass
 
+
 class BlockPuzzleDFS(BlockPuzzle, PuzzleDFS):
     pass
+
+
 
 if __name__ == "__main__":
     field = [[0, 0, 1, 1, 0, 0],
@@ -66,8 +70,8 @@ if __name__ == "__main__":
              [[6, 2], [6, 3]]
              ]
     goal = lambda position: position[0][0] == (6,2)
-    # myPuzzle = BlockPuzzleBFS(firstPosition, goal, field)
-    myPuzzle = BlockPuzzleDFS(firstPosition, goal, field)
+    myPuzzle = BlockPuzzleBFS(firstPosition, goal, field)
+    # myPuzzle = BlockPuzzleDFS(firstPosition, goal, field)
     moving, moveNum = myPuzzle.solve()
     print("이동횟수",moveNum)
     print("이동경로", moving)

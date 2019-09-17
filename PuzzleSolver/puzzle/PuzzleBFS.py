@@ -1,6 +1,7 @@
-from puzzle.Queue import Queue
+from PuzzleSolver.puzzle.Queue import Queue
 
-
+# PuzzleBFS의 구조는 큐 대신 스택을 사용한다는 점,
+# 이에 따라 append, pop대신 enqueue dequeue 명령을 사용해 데이터를 다룬다는 점 이외에는 PuzzleDFS의 구조와 동일하다.
 class PuzzleBFS:
     state = [[]]
     field = [[]]

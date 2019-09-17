@@ -1,5 +1,5 @@
-from puzzle.PuzzleBFS import PuzzleBFS
-from puzzle.PuzzleDFS import PuzzleDFS
+from PuzzleSolver.puzzle.PuzzleBFS import PuzzleBFS
+from PuzzleSolver.puzzle.PuzzleDFS import PuzzleDFS
 
 
 class KnightPuzzle:
