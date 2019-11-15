@@ -46,9 +46,9 @@ if __name__ == "__main__":
     ]
     goal = lambda position: position[1] == [[1 for x in range(3)] for y in range(4)]
 
-    container = "Stack"
-    # container = "Queue"
+    # container = "Stack"
+    container = "Queue"
     myPuzzle = KnightPuzzle(firstPosition, goal, container)
     moving, moveNum = myPuzzle.solve()
-    print("이동횟수",moveNum)
+    print("이동횟수", moveNum)
     print("이동경로", moving)

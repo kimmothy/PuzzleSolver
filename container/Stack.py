@@ -17,14 +17,22 @@ class Stack:
         return StackIterator(self)
 
     def __contains__(self, item):
-        key = item[0]
-        value = item[1]
-        try:
-            for q in self:
-                if q[key] == value:
-                    return True
-        except StopIteration:
-            return False
+        if type(item) == (tuple or list):
+            key = item[0]
+            value = item[1]
+            try:
+                for data in self:
+                    if data[key] == value:
+                        return True
+            except StopIteration:
+                return False
+        else:
+            try:
+                for data in self:
+                    if data == item:
+                        return True
+            except StopIteration:
+                return False
 
     def get(self):
         if self.top is None:
